@@ -1,0 +1,6 @@
+.home {
+    background-image: url('../assets/imgs/homepagepic.jpg');
+    background-size: cover;
+    height:100%;
+    padding-top:80px;
+}

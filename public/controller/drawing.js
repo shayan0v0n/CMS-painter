@@ -1,0 +1,1 @@
+const fullImg = (img) => location.assign(img.src)

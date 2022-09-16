@@ -1,0 +1,19 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.form-btn {
+    border: 1px solid black;
+    transition: .3s;
+    background: black;
+    color: white;
+    border: 2px solid black !important;
+}
+
+.form-btn:hover {
+    background: black;
+    color: white;
+    border: 2px solid black !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

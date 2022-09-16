@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'SouciSansNF';
+    src: url('../assets/fonts/SouciSansNF.ttf');
+}
+
+body {
+    font-family: 'SouciSansNF';
+}
+
+.navbar-brand {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.nav-item a {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #36393D;
+    color: white;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: white;
+}

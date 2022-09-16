@@ -1,0 +1,22 @@
+.card {
+    border: none;
+}
+
+.card .card-title {
+    color: #4187d6;
+    font-size: 1.3rem;
+    margin: 0 !important;
+    text-decoration: none;
+    margin: .3rem 0;
+}
+
+.card .card-title:hover {
+    color: #1565c0;
+    text-decoration: underline;
+}
+
+.card .card-text {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0 !important;
+}

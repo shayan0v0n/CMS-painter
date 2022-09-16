@@ -1,0 +1,16 @@
+.card {
+    font-size: 1.3rem;
+    border: none;
+}
+
+.card .card-title {
+    color: #1565c0;
+    font-size: 1.8rem;
+    margin: 0 !important;
+}
+
+.card .card-text {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 0 !important;
+}

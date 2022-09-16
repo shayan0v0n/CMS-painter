@@ -1,0 +1,28 @@
+.contact-links span {
+    font-size: 1.4rem;
+}
+
+.form-btn {
+    border: 1px solid black;
+    transition: .3s;
+    background: black;
+    color: white;
+    border: 2px solid black !important;
+}
+
+.form-btn:hover {
+    background: black;
+    color: white;
+    border: 2px solid black !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.form-control {
+    border: 2px solid gray !important;
+    transition: .2s;
+}
+
+.form-control:focus {
+    border: 4px solid gray !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
