@@ -80,7 +80,7 @@ $currentAdmin = isset($_COOKIE['authStatus']);
     </div>
     <hr class="m-auto w-50">
     <div class="container">
-        <form class="m-5 animate__animated animate__fadeInUp" action="../public/server/add_contact_list.php" method="post">
+        <form class="m-5 animate__animated animate__fadeInUp" action="../public/server/Actions/add_contact_list.php" method="post">
             <div class="row my-3">
                 <div class="col-12 col-md-6 my-3">
                     <input type="text" class="form-control" placeholder="Your Name..." id="nameInput" name="contactName">
