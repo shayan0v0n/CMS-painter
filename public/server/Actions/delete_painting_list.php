@@ -1,10 +1,10 @@
 <?php
 
 $dir = "C:\Users\shayanDev\Desktop\projects\mrkhosro-web/paintings";
-require_once 'actionDB.php';
+require_once 'SetterDB.php';
 require_once 'GetterDB.php';
 $getDatabase = new GetterDB();
-$setToContactList = new ActionDB();
+$setToContactList = new SetterDB();
 
 $getID = $_GET['paintingId'];
 $paintingsData = $getDatabase-> getCustomData('paintings', 'title', $getID);

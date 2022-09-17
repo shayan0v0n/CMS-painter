@@ -79,4 +79,11 @@ class SetterDB extends Database {
             ":internal"=> $internal
         ]);
     }
+
+    public function deleteCustomData($tableType, $conditionType, $conditionValue) {
+        $currentPDO = $this-> pdo;
+        $sql = "DELETE FROM $tableType WHERE $conditionType = '$conditionValue'";
+        $statement = $currentPDO-> query($sql);
+        $statement-> execute();
+    }
 }

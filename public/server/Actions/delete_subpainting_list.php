@@ -1,8 +1,8 @@
 <?php
 
 $dir = "C:\Users\shayanDev\Desktop\projects\mrkhosro-web/paintings";
-require_once 'actionDB.php';
-$setToContactList = new ActionDB();
+require_once 'SetterDB.php';
+$setToContactList = new SetterDB();
 
 $getID = $_GET['subpaintingId'];
 
