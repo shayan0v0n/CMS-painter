@@ -3,7 +3,7 @@
 require_once '../SetterDB.php';
 $setToContactList = new SetterDB();
 
-$upload_dir = "C:\Users\shayanDev\Desktop\projects\mrkhosro-web/publications";
+$upload_dir = "C:\Users\shayanDev\Desktop\projects\CMS-painter/publications";
 $publicationName = $_POST['publicationName'];
 $publicationTitle = $_POST['publicationTitle'];
 $publicationFile = $_FILES['publicationFile']["tmp_name"][0];

@@ -122,7 +122,7 @@ if (!$currentAdmin)
                         <div class="accordion-body">
                             <h2>press Title: <?= $item['title']?></h2>
                             <div class="text-end">
-                                <a href="/public/server/Actions/delete_press_list.php/?pressLink=<?= $item['link']?>">
+                                <a href="/public/server/Actions/delete_press_list.php/?pressLink=<?= $item['id']?>">
                                     <img src="/public/assets/imgs/trash-icon.png" style="cursor: pointer;" />
                                 </a>
                             </div>

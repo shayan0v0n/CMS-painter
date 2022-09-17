@@ -120,7 +120,7 @@ if (!isset($paintingId))
                             <h2>Painting Title: <?= $item['title']?></h2>
                                 <img src="/paintings/<?= $item['title']?>.jpg" alt="<?= $item['title'] ?>" style="cursor: pointer" class="w-25 p-3 m-auto border rounded" />
                             <div class="text-end">
-                                <a href="/public/server/Actions/delete_subpainting_list.php/?subpaintingId=<?= $item['title']?>">
+                                <a href="/public/server/Actions/delete_subpainting_list.php/?subpaintingId=<?= $item['id']?>">
                                     <img src="/public/assets/imgs/trash-icon.png" style="cursor: pointer;" />
                                 </a>
                             </div>

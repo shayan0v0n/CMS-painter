@@ -119,7 +119,7 @@ if (!$currentAdmin)
                         <div class="accordion-body">
                             <h2>Publication Name: <?= $item['name']?> | Publication Title: <?= $item['title']?></h2>
                             <div class="text-end">
-                                <a href="/public/server/Actions/delete_publication_list.php/?publicationId=<?= $item['link']?>">
+                                <a href="/public/server/Actions/delete_publication_list.php/?publicationId=<?= $item['id']?>">
                                     <img src="/public/assets/imgs/trash-icon.png" style="cursor: pointer;" />
                                 </a>
                             </div>

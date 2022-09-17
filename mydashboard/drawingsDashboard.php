@@ -115,7 +115,7 @@ if (!$currentAdmin)
                             <h2>Drawing Title: <?= $item['title']?></h2>
                             <img src="/drawings/<?= $item['title']?>.jpg" alt="<?= $item['title'] ?>" style="cursor: pointer" class="w-25 p-3 m-auto border rounded" />
                             <div class="text-end">
-                                <a href="/public/server/Actions/delete_drawing_list.php/?drawingId=<?= $item['title']?>">
+                                <a href="/public/server/Actions/delete_drawing_list.php/?drawingId=<?= $item['id']?>">
                                     <img src="/public/assets/imgs/trash-icon.png" style="cursor: pointer;" />
                                 </a>
                             </div>

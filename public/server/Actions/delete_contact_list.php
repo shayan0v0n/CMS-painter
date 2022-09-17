@@ -2,5 +2,6 @@
 
 require_once '../SetterDB.php';
 $setToContactList = new SetterDB();
-$setToContactList-> deleteCustomData('contact', 'name', $_GET['contactListId']);
+$currnetName = $_GET['contactListId'];
+$setToContactList-> deleteCustomData('contact', 'id', $currnetName);
 header("location: /mydashboard/contactDashboard.php");

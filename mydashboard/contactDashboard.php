@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once './../public/server/GetterDB.php';
 $getDatabase = new GetterDB();
 $admin = $getDatabase-> getData('admin');
@@ -94,7 +94,7 @@ if (!$currentAdmin)
                             <h2>My Email Is <?= $item['email']?> And My Subject Is <?= $item['subject']?></h2>
                             <p><?= $item['message']?></p>
                             <div class="text-end">
-                                <a href="/public/server/Actions/delete_contact_list.php/?contactListId=<?= $item['name']?>">
+                                <a href="/public/server/Actions/delete_contact_list.php/?contactListId=<?= $item['id']?>">
                                     <img src="/public/assets/imgs/trash-icon.png" style="cursor: pointer;" />
                                 </a>
                             </div>

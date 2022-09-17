@@ -117,7 +117,7 @@ if (!$currentAdmin)
                                 <img src="/paintings/<?= $item['title']?>.jpg" alt="<?= $item['title'] ?>" style="cursor: pointer" class="w-25 p-3 m-auto border rounded" />
                             </a>
                             <div class="text-end">
-                                <a href="/public/server/Actions/delete_painting_list.php/?paintingId=<?= $item['title']?>">
+                                <a href="/public/server/Actions/delete_painting_list.php/?paintingId=<?= $item['id']?>">
                                     <img src="/public/assets/imgs/trash-icon.png" style="cursor: pointer;" />
                                 </a>
                             </div>

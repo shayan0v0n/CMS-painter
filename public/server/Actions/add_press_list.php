@@ -2,7 +2,7 @@
 
 require_once '../SetterDB.php';
 $setToContactList = new SetterDB();
-$upload_dir = "C:\Users\shayanDev\Desktop\projects\mrkhosro-web/press";
+$upload_dir = "C:\Users\shayanDev\Desktop\projects\CMS-painter/press";
 
 $pressTitle = $_POST['pressTitle'];
 $isInternal = $_POST['isInternal'];

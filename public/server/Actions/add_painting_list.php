@@ -3,7 +3,7 @@
 require_once '../SetterDB.php';
 $setToContactList = new SetterDB();
 
-$upload_dir = "C:\Users\shayanDev\Desktop\projects\mrkhosro-web/paintings";
+$upload_dir = "C:\Users\shayanDev\Desktop\projects\CMS-painter/paintings";
 $paintingTitle = $_POST['paintingTitle'];
 $paintingdFile = $_FILES['paintingdFile']["tmp_name"][0];
 

@@ -72,12 +72,19 @@ $currentAdmin = isset($_COOKIE['authStatus']);
             <hr class="m-auto w-25">
     </div>
     <div class="row container text-center px-5 my-5 m-auto g-0">
-        <?php foreach($paintingsData as $painting) {?>
-            <div class="col-12 col-md-3 m-auto m-1 p-1 animate__animated animate__jackInTheBox ">
-                <img src="/paintings/<?= $painting['title']?>.jpg" alt="<?= $painting['title'] ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-1 border rounded" height="200" />
+        <?php if (isset($paintingsData[0])) { ?>
+            <?php foreach($paintingsData as $painting) {?>
+                <div class="col-12 col-md-3 m-auto m-1 p-1 animate__animated animate__jackInTheBox ">
+                    <img src="/paintings/<?= $painting['title']?>.jpg" alt="<?= $painting['title'] ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-1 border rounded" height="200" />
+                </div>
+            <?php }?>
+        <?php } else { ?>
+            <div>
+                <h2 class="text-center my-5">No Painting Yet!</h2>
             </div>
-        <?php }?>
+        <?php } ?>
     </div>
+        
 </main>
     
 <footer>

@@ -29,6 +29,7 @@ class Database {
                 `id` int AUTO_INCREMENT,
                 `name` varchar(50),
                 `title` varchar(50),
+                `link` varchar(150),
                 PRIMARY KEY(id)
             );
         ",

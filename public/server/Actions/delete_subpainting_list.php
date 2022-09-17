@@ -1,11 +1,13 @@
 <?php
 
-$dir = "C:\Users\shayanDev\Desktop\projects\mrkhosro-web/paintings";
+$dir = "C:\Users\shayanDev\Desktop\projects\CMS-painter/paintings";
 require_once '../SetterDB.php';
+require_once '../GetterDB.php';
+$getDatabase = new GetterDB();
 $setToContactList = new SetterDB();
-
 $getID = $_GET['subpaintingId'];
-
-$setToContactList-> deleteCustomData('subpaintings', 'title', $getID);
-unlink("$dir/$getID.jpg");
+$paintingsData = $getDatabase-> getCustomData('subpaintings', 'id', $getID);
+$paintingTitle = $paintingsData[0]['title'];
+$setToContactList-> deleteCustomData('subpaintings', 'id', $getID);
+unlink("$dir/$paintingTitle.jpg");
 header("location: /mydashboard/paintingsDashboard.php");
