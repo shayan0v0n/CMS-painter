@@ -115,7 +115,8 @@ if (!$currentAdmin)
                         </h2>
                         <div id="collapse<?= $item['id']?>" class="accordion-collapse collapse" aria-labelledby="heading<?= $item['id']?>" data-bs-parent="#accordion">
                         <div class="accordion-body">
-                            <h2>Publication location: <?= $item['location']?> | Publication place: <?= $item['place']?></h2>
+                            <h2>location: <?= $item['location']?></h2>
+                            <h2>place: <?= $item['place']?></h2>
                             <div class="text-end">
                                 <a href="/public/server/Actions/delete_exhibition_list.php/?exhibitionId=<?= $item['id']?>">
                                     <img src="/public/assets/imgs/trash-icon.png" style="cursor: pointer;" />

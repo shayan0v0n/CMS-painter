@@ -1,5 +1,5 @@
 <?php
-
+ini_set("display_errors", "off");
 class Database {
     public $pdo;
     public function __construct() {

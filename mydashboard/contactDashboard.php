@@ -91,8 +91,11 @@ if (!$currentAdmin)
                         </h2>
                         <div id="collapse<?= $item['id']?>" class="accordion-collapse collapse" aria-labelledby="heading<?= $item['id']?>" data-bs-parent="#accordion">
                         <div class="accordion-body">
-                            <h2>My Email Is <?= $item['email']?> And My Subject Is <?= $item['subject']?></h2>
-                            <p><?= $item['message']?></p>
+                            <h2>Name: <?= $item['name']?></h2>
+                            <h2>Email: <?= $item['email']?></h2>
+                            <h2>Subject: <?= $item['subject']?></h2>
+                            <hr />
+                            <p style="font-size: 2rem;">Message: <?= $item['message']?></p>
                             <div class="text-end">
                                 <a href="/public/server/Actions/delete_contact_list.php/?contactListId=<?= $item['id']?>">
                                     <img src="/public/assets/imgs/trash-icon.png" style="cursor: pointer;" />

@@ -75,7 +75,7 @@ $currentAdmin = isset($_COOKIE['authStatus']);
         <?php if (isset($paintingsData[0])) { ?>
             <?php foreach($paintingsData as $painting) {?>
                 <div class="col-12 col-md-3 m-auto m-1 p-1 animate__animated animate__jackInTheBox ">
-                    <img src="/paintings/<?= $painting['title']?>.jpg" alt="<?= $painting['title'] ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-1 border rounded" height="200" />
+                    <img src="/paintings/<?= $painting['title']?>.jpg" alt="<?= $painting['title'] ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
                 </div>
             <?php }?>
         <?php } else { ?>

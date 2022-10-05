@@ -70,11 +70,11 @@ $currentAdmin = isset($_COOKIE['authStatus']);
             <h2 class="">PAINTINGS</h2>
             <hr class="m-auto w-25">
         </div>
-        <div class="row m-0 py-3 text-center">
+        <div class="row m-auto container py-3 text-center">
         <?php if (isset($paintingsData[0])) { ?>
             <?php foreach($paintingsData as $painting) {?>
                 <div class="col-12 col-md-3 m-auto m-1 p-1 animate__animated animate__jackInTheBox ">
-                    <a href="/paintings/painting.php/?currentPage=<?= $painting['title']?>"><img title="<?= $painting['title']?>" src="/paintings/<?= $painting['title']?>.jpg" alt="<?= $painting['title'] ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-1 border rounded" height="200" /></a>
+                    <a href="/paintings/painting.php/?currentPage=<?= $painting['title']?>"><img title="<?= $painting['title']?>" src="/paintings/<?= $painting['title']?>.jpg" alt="<?= $painting['title'] ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" /></a>
                 </div>
             <?php }?>
         <?php } else { ?>
