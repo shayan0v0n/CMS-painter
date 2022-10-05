@@ -1,7 +1,6 @@
-<?php
+<?php namespace Server;
 ini_set("display_errors", "off");
-
-require_once 'Database.php';
+use Server\Database;
 
 class SetterDB extends Database {
     public function __construct() {

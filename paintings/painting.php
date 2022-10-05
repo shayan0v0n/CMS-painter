@@ -1,6 +1,7 @@
 <?php
+require_once '../vendor/autoload.php';
+use Server\GetterDB;
 $currentPage = $_GET['currentPage'];
-require_once './../public/server/GetterDB.php';
 $getDatabase = new GetterDB();
 $currentPageData = $getDatabase-> getCustomData('paintings', "title", $currentPage);
 $paintingsData = $getDatabase-> getCustomData('subpaintings', "paintingID", $currentPageData[0]['id']);

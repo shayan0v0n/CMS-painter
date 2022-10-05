@@ -1,0 +1,16 @@
+{
+    "name": "shayandev/cms-painter",
+    "autoload": {
+        "psr-4": {
+            "Server\\": "Public/Server/"
+        },
+        "files": ["vendor/autoload.php"]
+    },
+    "authors": [
+        {
+            "name": "shayan vosoughi",
+            "email": "shayanwqhw@gmail.com"
+        }
+    ],
+    "require": {}
+}

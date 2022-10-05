@@ -1,7 +1,8 @@
 <?php
 
-require_once '../SetterDB.php';
-require_once '../GetterDB.php';
+require_once '../../../vendor/autoload.php';
+use Server\SetterDB;
+use Server\GetterDB;
 $getContactList = new GetterDB();
 $setToContactList = new SetterDB();
 $getID = $_GET['exhibitionId'];

@@ -1,5 +1,6 @@
 <?php 
-require_once './public/server/GetterDB.php';
+require_once './vendor/autoload.php';
+use Server\GetterDB;
 $getDatabase = new GetterDB();
 $admin = $getDatabase-> getData('admin');
 $currentAdmin = isset($_COOKIE['authStatus']);

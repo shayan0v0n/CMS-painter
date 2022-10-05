@@ -1,6 +1,7 @@
 <?php 
 
-require_once './../public/server/GetterDB.php';
+require_once '../vendor/autoload.php';
+use Server\GetterDB;
 $getDatabase = new GetterDB();
 $paintingsData = $getDatabase-> getData('paintings');
 $admin = $getDatabase-> getData('admin');

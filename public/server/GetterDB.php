@@ -1,7 +1,7 @@
-<?php
+<?php namespace Server;
 ini_set("display_errors", "off");
-
-require_once 'Database.php';
+use Server\Database;
+use PDO;
 
 class GetterDB extends Database {
     public function __construct() {

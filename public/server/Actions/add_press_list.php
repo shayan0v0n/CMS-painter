@@ -1,6 +1,7 @@
 <?php
 
-require_once '../SetterDB.php';
+require_once '../../../vendor/autoload.php';
+use Server\SetterDB;
 $setToContactList = new SetterDB();
 $upload_dir = "C:\Users\shayanDev\Desktop\projects\CMS-painter/press";
 

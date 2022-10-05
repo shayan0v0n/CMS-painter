@@ -1,5 +1,7 @@
-<?php
+<?php namespace Server;
 ini_set("display_errors", "off");
+use PDO;
+
 class Database {
     public $pdo;
     public function __construct() {

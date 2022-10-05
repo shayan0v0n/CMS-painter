@@ -1,13 +1,9 @@
-<?php
-
+<?php namespace Public\Server;
 ini_set("display_errors", "off");
-
-require_once 'Database.php';
+use Server\Database;
 
 class ActionDB extends Database {
     public function __construct() {
         parent::__construct();
     }
-
-
 }

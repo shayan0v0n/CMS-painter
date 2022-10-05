@@ -1,6 +1,7 @@
 <?php
 
-require_once '../SetterDB.php';
+require_once '../../../vendor/autoload.php';
+use Server\SetterDB;
 $setToContactList = new SetterDB();
 $setToContactList-> setContactList($_POST['contactName'], $_POST['contactEmail'],
 $_POST['contactSubject'], $_POST['contactMessage']);
