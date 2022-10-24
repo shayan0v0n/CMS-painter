@@ -78,7 +78,7 @@ $currentAdmin = isset($_COOKIE['authStatus']);
                 <div class="col-12 m-auto animate__animated animate__fadeIn">
                     <div class="card m-2">
                         <p class="card-title"><?= $publication['name']?></p>
-                        <a href="/publications/<?= $publication['link'] ?>" class="card-text"><?= $publication['title']?></a>
+                        <a href="/publications/<?= $publication['link'] ?>.pdf" class="card-text"><?= $publication['title']?></a>
                     </div>
                 </div>
             <?php }?>

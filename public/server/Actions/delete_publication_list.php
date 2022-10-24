@@ -9,6 +9,7 @@ $setToContactList = new SetterDB();
 $getID = $_GET['publicationId'];
 $getCurrentPublication = $getDatabase-> getCustomData('publications', 'id', $getID);
 $getCurrentPublicationName = $getCurrentPublication[0]['link'];
+$getCurrentPublicationTitle = $getCurrentPublication[0]['title'];
 $setToContactList-> deleteCustomData('publications', 'id', $getCurrentPublication[0]['id']);
-unlink("$dir/$getCurrentPublicationName");
+unlink("$dir/$getCurrentPublicationTitle.pdf");
 header("location: /mydashboard/publicationsDashboard.php");

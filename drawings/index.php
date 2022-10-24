@@ -7,6 +7,8 @@ $drawingDatas = $getDatabase-> getData('drawings');
 $admin = $getDatabase-> getData('admin');
 $currentAdmin = isset($_COOKIE['authStatus']);
 
+$accordianCount = round(count($drawingDatas) / 4);
+
 ?>
 
 <html lang="en">
@@ -74,8 +76,8 @@ $currentAdmin = isset($_COOKIE['authStatus']);
     <div class="row py-3 text-center container m-auto">
         <?php if (isset($drawingDatas[0])) { ?>
             <?php foreach($drawingDatas as $drawing) {?>
-                <div class="col-12 col-md-3 m-auto m-1 p-1 animate__animated animate__jackInTheBox ">
-                    <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                <div class="col-12 col-md-3 m-auto m-1 p-1 animate__animated animate__fadeInUp">
+                    <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
                 </div>
             <?php }?>
         <?php } else { ?>
