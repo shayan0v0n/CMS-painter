@@ -30,11 +30,12 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function setExhibition($location, $date, $place) {
+    public function setExhibition($title, $location, $date, $place) {
         $currentPDO = $this-> pdo;
-        $sql = "INSERT INTO exhibitions (location, date, place) values (:location, :date, :place)";
+        $sql = "INSERT INTO exhibitions (title, location, date, place) values (:title, :location, :date, :place)";
         $statement = $currentPDO->prepare($sql);
         $statement-> execute([
+            ":title"=> $title,
             ":location"=> $location,
             ":date"=> $date,
             ":place"=> $place,

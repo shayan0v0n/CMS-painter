@@ -73,6 +73,7 @@ $accordianCount = round(count($drawingDatas) / 4);
         <h2 class="">DRAWINGS</h2>
         <hr class="m-auto w-25">
     </div>
+
     <div class="row py-3 text-center container m-auto">
         <?php if (isset($drawingDatas[0])) { ?>
             <?php foreach($drawingDatas as $drawing) {?>

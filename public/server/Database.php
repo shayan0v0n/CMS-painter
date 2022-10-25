@@ -47,6 +47,7 @@ class Database {
         "
             CREATE TABLE IF NOT EXISTS `exhibitions` (
                 `id` int AUTO_INCREMENT,
+                `title` varchar(100),
                 `date` int,
                 `place` varchar(50),
                 `location` varchar(50),

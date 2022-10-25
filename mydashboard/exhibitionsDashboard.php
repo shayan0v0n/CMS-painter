@@ -81,6 +81,9 @@ if (!$currentAdmin)
         <div class="container">
             <form class="m-5 animate__animated animate__fadeInUp" enctype="multipart/form-data" action="../public/server/Actions/add_exhibition_list.php" method="post">
                 <div class="my-3">
+                    <input type="text" class="form-control" placeholder="Title..." id="titleInput" name="exhibitionTitle">
+                </div>
+                <div class="my-3">
                     <input type="text" class="form-control" placeholder="Location..." id="locationInput" name="exhibitionLocation">
                 </div>
                 <div class="my-3">
@@ -91,6 +94,12 @@ if (!$currentAdmin)
                 <div class="my-3">
                     <div>
                         <input type="text" class="form-control" placeholder="Date..." id="dateInput" name="exhibitionDate">    
+                    </div>
+                </div>
+                <div class="my-3">
+                    <div>
+                        <label for="formFile" class="form-label">Enter Your Exhibition File...</label>
+                        <input class="form-control" type="file" id="fileInput" multiple="true" name="exhibitionFile[]">
                     </div>
                 </div>
                 <button type="submit" class="btn w-100 form-btn" id="submitBtn">Submit</button>

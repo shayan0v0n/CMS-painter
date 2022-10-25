@@ -77,7 +77,8 @@ $currentAdmin = isset($_COOKIE['authStatus']);
         <?php if (isset($exhibitionsData[0])) { ?>
             <?php foreach($exhibitionsData as $exhibition) {?>
                 <div class="col-12 col-md-3 m-auto animate__animated animate__fadeIn">
-                    <div class="card m-5">
+                    <div class="card m-5 p-3 border rounded">
+                        <img src="/exhibitions/<?= $exhibition['title']?>.jpg" alt="<?= $exhibition['title'] ?>" title="<?= $exhibition["title"]?>" class="w-100 m-0 rounded" height="200" />
                         <p class="card-title"><?= $exhibition['date']?></p>
                         <p class="card-text"><?= $exhibition['place']?></p>
                         <p class="card-text"><?= $exhibition['location']?></p>
