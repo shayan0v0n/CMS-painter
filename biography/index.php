@@ -1,9 +1,22 @@
 <?php 
 require_once '../vendor/autoload.php';
 use Server\GetterDB;
+use Server\SetterDB;
+
 $getDatabase = new GetterDB();
+$setDatabase = new SetterDB();
 $admin = $getDatabase-> getData('admin');
+$biography = $getDatabase-> getData('biography');
 $currentAdmin = isset($_COOKIE['authStatus']);
+
+$getBio = $getDatabase->getCustomData("biography", "id", 1);
+if (count($getBio) === 0) {
+    $setDatabase->setBioDefault();
+}
+
+$getEductions = $getDatabase->getData("eductions");
+$getTeachings = $getDatabase->getData("teachings");
+
 
 ?>
 
@@ -74,26 +87,26 @@ $currentAdmin = isset($_COOKIE['authStatus']);
     </div>
     <div class="my-5 m-auto row">
         <div class="col-12 col-md-5 text-center">
-            <img src="../public/assets/imgs/biographyImg.jpg" class="w-75 rounded m-auto m-3 animate__animated animate__fadeInLeft" />
+            <img src="/biography/<?= $biography[0]["img_link"]?>" class="w-75 rounded m-auto m-3 animate__animated animate__fadeInLeft" />
         </div>
         <div class="col-12 col-md-7 d-flex text-start align-items-center">
             <div class="m-3 animate__animated animate__fadeInRight">
                 <div class="d-flex flex-column bio-section-1">
-                    <span>Ali Nassir</span>
-                    <span>Born in Tehran 1951</span>
-                    <span>Lives and works in Berlin and Tehran</span>
+                    <span><?= $biography[0]["fullName"]?></span>
+                    <span>Born in <?= $biography[0]["where_born"]?> <?= $biography[0]["when_born"]?></span>
+                    <span>Lives and works in <?= $biography[0]["when_live_and_work"]?></span>
                 </div>
                 <div class="py-3 bio-section-2">
                     <h2 class="py-1">EDUCATION</h2>
-                    <p><span>1985</span><span class="m-5">2 year scholarship by the Hochschule der Künste (HdK), Berlin</span></p>
-                    <p><span>1983</span><span class="m-5">Graduation as Meisterschüler at the Hochschule der Künste (HdK), Berlin</span></p>
-                    <p><span>1978</span><span class="m-5">Studying Fine Arts (Painting) at the Hochschule der Künste (HdK), Berlin</span></p>
+                    <?php foreach($getEductions as $eduction) { ?>
+                        <p><span><?= $eduction["date"]?></span><span class="m-5"><?= $eduction["description"]?></span></p>
+                    <?php }?>
                 </div>
                 <div class="py-3 bio-section-3">
                     <h2 class="py-1">TEACHINGS</h2>
-                    <p><span>2004 - 05</span><span class="m-5">Visiting professor at the Tehran University and the Azad University Tehran</span></p>
-                    <p><span>1996 - 97</span><span class="m-5">	Teaching assignment at the Hochschule der Künste (HdK), Berlin</span></p>
-                    <p><span>1993 - 96</span><span class="m-5">Teaching assignment at the Faculty of Architecture</span></p>
+                    <?php foreach($getTeachings as $teachs) { ?>
+                        <p><span><?= $teachs["date"]?></span><span class="m-5"><?= $teachs["description"]?></span></p>
+                    <?php }?>
                 </div>
             </div>
         </div>

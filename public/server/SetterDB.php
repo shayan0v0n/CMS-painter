@@ -2,6 +2,7 @@
 ini_set("display_errors", "off");
 use Server\Database;
 
+
 class SetterDB extends Database {
     public function __construct() {
         parent::__construct();
@@ -78,6 +79,61 @@ class SetterDB extends Database {
             ":title"=> $title,
             ":link"=> $link,
             ":internal"=> $internal
+        ]);
+    }
+
+    public function updateBiographyImage($link) {
+        $currentPDO = $this-> pdo;
+        $sql = "UPDATE biography SET img_link = :imgLink WHERE id = 1";
+        $statement = $currentPDO->prepare($sql);
+        $statement-> execute([
+            ":imgLink"=> "$link"
+        ]);
+    }
+
+    public function updateBiographyInfo($bioInfoUserName, $bioInfoWhereBorn, $bioInfoWhenBorn, $bioInfoWhenLiveAndWork) {
+        $currentPDO = $this-> pdo;
+        $sql = "UPDATE biography SET fullName = :fullName, where_born = :where_born, when_born = :when_born, when_live_and_work = :when_live_and_work WHERE id = 1";
+        $statement = $currentPDO->prepare($sql);
+        $statement-> execute([
+            ":fullName" => $bioInfoUserName,
+            ":where_born" => $bioInfoWhereBorn,
+            ":when_born" => $bioInfoWhenBorn,
+            ":when_live_and_work" => $bioInfoWhenLiveAndWork
+        ]);
+    }
+
+    public function addEducationList($whenEducation, $descriptionEducation) {
+        $currentPDO = $this-> pdo;
+        $sql = "INSERT INTO `eductions` (date, description) VALUES (:date, :description)";
+        $statement = $currentPDO->prepare($sql);
+        $statement-> execute([
+            ":date" => $whenEducation,
+            ":description" => $descriptionEducation
+        ]);
+    }
+
+    public function addTeachingList($whenTeachings, $descriptionTeachings) {
+        $currentPDO = $this-> pdo;
+        $sql = "INSERT INTO `teachings` (date, description) VALUES (:date, :description)";
+        $statement = $currentPDO->prepare($sql);
+        $statement-> execute([
+            ":date" => $whenTeachings,
+            ":description" => $descriptionTeachings
+        ]);
+    }
+
+    public function setBioDefault() {
+        $currentPDO = $this-> pdo;
+        $sql = "INSERT INTO `biography` (id, fullName, where_born, when_born, when_live_and_work, img_link) VALUES (:id, :fullName, :where_born, :when_born, :when_live_and_work, :img_link)";
+        $statement = $currentPDO->prepare($sql);
+        $statement-> execute([
+            "id" => 1,
+            "fullName" => "----",
+            "where_born" => "----",
+            "when_born" => "----",
+            "when_live_and_work" => "----", 
+            "img_link" => "biographyImgdisplay.jpg"
         ]);
     }
 

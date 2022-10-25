@@ -119,6 +119,17 @@ if (!$currentAdmin)
             </a>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-md-4"></div>
+        <div class="col-12 col-md-4">
+            <a href="/mydashboard/biographyDashboard.php">
+                <div class="card m-2">
+                    <h2 class="p-5 text-center">Biography</h2>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-md-4"></div>
+    </div>
 </div>
     
 </main>

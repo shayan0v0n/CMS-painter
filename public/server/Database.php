@@ -27,6 +27,33 @@ class Database {
             );
         ",
         "
+            CREATE TABLE IF NOT EXISTS `biography` (
+                `id` int,
+                `fullName` varchar(200),
+                `where_born` varchar(200),
+                `when_born` varchar(200),
+                `when_live_and_work` varchar(200),
+                `img_link` varchar(200),
+                PRIMARY KEY(id)
+            )
+        ",
+        "
+            CREATE TABLE IF NOT EXISTS `eductions` (
+                `id` int AUTO_INCREMENT,
+                `date` int,
+                `description` text,
+                PRIMARY KEY(id)
+            )
+        ",
+        "
+            CREATE TABLE IF NOT EXISTS `teachings` (
+                `id` int AUTO_INCREMENT,
+                `date` int,
+                `description` text,
+                PRIMARY KEY(id)
+            )
+        ",
+        "
             CREATE TABLE IF NOT EXISTS `publications` (
                 `id` int AUTO_INCREMENT,
                 `name` varchar(50),
@@ -87,7 +114,7 @@ class Database {
 
         foreach ($statements as $statement) {
             $currentPDO->exec($statement);
-        }
+        };
     }
 }
 
