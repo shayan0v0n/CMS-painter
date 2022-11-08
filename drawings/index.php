@@ -4,10 +4,22 @@ require_once '../vendor/autoload.php';
 use Server\GetterDB;
 $getDatabase = new GetterDB();
 $drawingDatas = $getDatabase-> getData('drawings');
+$cloneDrawingDatas = $drawingDatas;
 $admin = $getDatabase-> getData('admin');
 $currentAdmin = isset($_COOKIE['authStatus']);
 
-$accordianCount = round(count($drawingDatas) / 4);
+$drawingSpliceOne = array_splice($cloneDrawingDatas,0, 4);
+$cloneDrawingDatas = $drawingDatas;
+$drawingSpliceTwo = array_splice($cloneDrawingDatas,4, 4);
+$cloneDrawingDatas = $drawingDatas;
+$drawingSpliceThree = array_splice($cloneDrawingDatas,8, 4);
+$cloneDrawingDatas = $drawingDatas;
+$drawingSpliceFour = array_splice($cloneDrawingDatas,12, 4);
+$cloneDrawingDatas = $drawingDatas;
+$drawingSpliceFive = array_splice($cloneDrawingDatas,16, 4);
+$cloneDrawingDatas = $drawingDatas;
+$drawingSpliceSix = array_splice($cloneDrawingDatas,20, 4);
+$cloneDrawingDatas = $drawingDatas;
 
 ?>
 
@@ -68,19 +80,85 @@ $accordianCount = round(count($drawingDatas) / 4);
 </nav>
 </header>
 
+
+
+
+
+
 <main>
     <div class="mt-5 mb-5 text-center">
         <h2 class="">DRAWINGS</h2>
         <hr class="m-auto w-25">
     </div>
-
-    <div class="row py-3 text-center container m-auto">
+    
+    <div class="py-3 text-center container mx-auto" style="margin: 120px 0">
         <?php if (isset($drawingDatas[0])) { ?>
-            <?php foreach($drawingDatas as $drawing) {?>
-                <div class="col-12 col-md-3 m-auto m-1 p-1 animate__animated animate__fadeInUp">
-                    <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
-                </div>
-            <?php }?>
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                  <?php if (count($drawingSpliceOne) !== 0) { ?>
+                        <div class="carousel-item row active">
+                            <?php foreach($drawingSpliceOne as $drawing) {?>
+                                <div class="col-12 col-md-3 m-auto p-1">
+                                    <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                                </div>
+                            <?php }?>
+                        </div>
+                    <?php }?>
+                <?php if (count($drawingSpliceTwo) !== 0) { ?>
+                    <div class="carousel-item row">
+                        <?php foreach($drawingSpliceTwo as $drawing) {?>
+                            <div class="col-12 col-md-3 m-auto p-1">
+                                <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                            </div>
+                        <?php }?>
+                    </div>
+                <?php }?>
+                <?php if (count($drawingSpliceThree) !== 0) { ?>
+                    <div class="carousel-item row">
+                        <?php foreach($drawingSpliceThree as $drawing) {?>
+                            <div class="col-12 col-md-3 m-auto p-1">
+                                <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                            </div>
+                        <?php }?>
+                    </div>
+                <?php }?>
+                <?php if (count($drawingSpliceFour) !== 0) { ?>
+                    <div class="carousel-item row">
+                        <?php foreach($drawingSpliceFour as $drawing) {?>
+                            <div class="col-12 col-md-3 m-auto p-1">
+                                <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                            </div>
+                        <?php }?>
+                    </div>
+                <?php }?>
+                <?php if (count($drawingSpliceFive) !== 0) { ?>
+                    <div class="carousel-item row">
+                        <?php foreach($drawingSpliceFive as $drawing) {?>
+                            <div class="col-12 col-md-3 m-auto p-1">
+                                <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                            </div>
+                        <?php }?>
+                    </div>
+                <?php }?>
+                <?php if (count($drawingSpliceSix) !== 0) { ?>
+                    <div class="carousel-item row">
+                        <?php foreach($drawingSpliceSix as $drawing) {?>
+                            <div class="col-12 col-md-3 m-auto p-1">
+                                <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                            </div>
+                        <?php }?>
+                    </div>
+                <?php }?>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
         <?php } else { ?>
             <div>
                 <h2 class="text-center my-5">No Drawing Yet!</h2>

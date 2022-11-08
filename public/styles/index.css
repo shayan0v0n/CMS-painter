@@ -31,3 +31,8 @@ footer a:hover {
     text-decoration: underline;
     color: white;
 }
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    display: block;
+    display: flex;
+}
