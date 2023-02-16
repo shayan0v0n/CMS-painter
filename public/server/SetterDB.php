@@ -137,6 +137,19 @@ class SetterDB extends Database {
         ]);
     }
 
+    public function setDefoultBiography(string $id) {
+        $currentPDO = $this-> pdo;
+        $sql = "UPDATE `biography` set fullName=:fullName , where_born=:where_born , when_born=:when_born , when_live_and_work=:when_live_and_work , img_link=:img_link WHERE id=$id";
+        $statement = $currentPDO->prepare($sql);
+        $statement-> execute([
+            ":fullName" => "----",
+            ":where_born" => "----",
+            ":when_born" => "----",
+            ":when_live_and_work" => "----", 
+            ":img_link" => "biographyImgdisplay.jpg"
+        ]);
+    }
+
     public function deleteCustomData($tableType, $conditionType, $conditionValue) {
         $currentPDO = $this-> pdo;
         $sql = "DELETE FROM $tableType WHERE $conditionType = '$conditionValue'";

@@ -12,5 +12,5 @@ $bioInfoUserName = $_POST["userName"];
 $bioInfoWhereBorn = $_POST["whereBorn"];
 $bioInfoWhenBorn = $_POST["whenBorn"];
 $bioInfoWhenLiveAndWork = $_POST["whenLiveAndWork"];
-$setToContactList-> updateBiographyInfo("$bioInfoUserName", "$bioInfoWhereBorn", "$bioInfoWhenBorn", "$bioInfoWhenLiveAndWork");
+$setToContactList->updateBiographyInfo("$bioInfoUserName", "$bioInfoWhereBorn", "$bioInfoWhenBorn", "$bioInfoWhenLiveAndWork");
 header("location: /mydashboard/biographyDashboard.php");

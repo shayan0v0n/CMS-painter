@@ -15,6 +15,7 @@ if (!$currentAdmin)
 
 $getEductions = $getDatabase->getData("eductions");
 $getTeachings = $getDatabase->getData("teachings");
+
 ?>
 
 <html lang="en">
@@ -175,7 +176,7 @@ $getTeachings = $getDatabase->getData("teachings");
             </div>
         </div>
     </div>
-    <button class="w-100 btn btn-danger m-3">DELETE</button>
+    <a href="/public/server/Actions/default_biography_info.php/?bioId=<?= $biography[0]['id']?>" class="w-100 btn btn-danger m-3">DELETE</a>
 </main>
     
 <footer>
