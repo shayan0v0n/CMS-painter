@@ -2,7 +2,10 @@
 
 require_once '../vendor/autoload.php';
 use Server\GetterDB;
+use Server\Security\AntiXSS;
+
 $getDatabase = new GetterDB();
+$antiXSS = new AntiXSS();
 $exhibitionsData = $getDatabase-> getData('exhibitions');
 $admin = $getDatabase-> getData('admin');
 $currentAdmin = isset($_COOKIE['authStatus']);
@@ -78,10 +81,10 @@ $currentAdmin = isset($_COOKIE['authStatus']);
             <?php foreach($exhibitionsData as $exhibition) {?>
                 <div class="col-12 col-md-3 m-auto animate__animated animate__fadeIn">
                     <div class="card m-5 p-3 border rounded">
-                        <img src="/exhibitions/<?= $exhibition['title']?>.jpg" alt="<?= $exhibition['title'] ?>" title="<?= $exhibition["title"]?>" class="w-100 m-0 rounded" height="200" />
-                        <p class="card-title"><?= $exhibition['date']?></p>
-                        <p class="card-text"><?= $exhibition['place']?></p>
-                        <p class="card-text"><?= $exhibition['location']?></p>
+                        <img src="/exhibitions/<?= $antiXSS->hsc($exhibition['title'])?>.jpg" alt="<?= $antiXSS->hsc($exhibition['title']) ?>" title="<?= $antiXSS->hsc($exhibition["title"])?>" class="w-100 m-0 rounded" height="200" />
+                        <p class="card-title"><?= $antiXSS->hsc($exhibition['date'])?></p>
+                        <p class="card-text"><?= $antiXSS->hsc($exhibition['place'])?></p>
+                        <p class="card-text"><?= $antiXSS->hsc($exhibition['location'])?></p>
                     </div>
                 </div>
         <?php }?>

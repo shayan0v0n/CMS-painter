@@ -1,10 +1,12 @@
 <?php 
 require_once '../vendor/autoload.php';
 use Server\GetterDB;
+use Server\Security\AntiXSS;
 use Server\SetterDB;
 
 $getDatabase = new GetterDB();
 $setDatabase = new SetterDB();
+$antiXSS = new AntiXSS();
 $admin = $getDatabase-> getData('admin');
 $biography = $getDatabase-> getData('biography');
 $currentAdmin = isset($_COOKIE['authStatus']);
@@ -87,25 +89,25 @@ $getTeachings = $getDatabase->getData("teachings");
     </div>
     <div class="my-5 m-auto row">
         <div class="col-12 col-md-5 text-center">
-            <img src="/biography/<?= $biography[0]["img_link"]?>" class="w-75 rounded m-auto m-3 animate__animated animate__fadeInLeft" />
+            <img src="/biography/<?= $antiXSS->hsc($biography[0]["img_link"])?>" class="w-75 rounded m-auto m-3 animate__animated animate__fadeInLeft" />
         </div>
         <div class="col-12 col-md-7 d-flex text-start align-items-center">
             <div class="m-3 animate__animated animate__fadeInRight">
                 <div class="d-flex flex-column bio-section-1">
-                    <span><?= $biography[0]["fullName"]?></span>
-                    <span>Born in <?= $biography[0]["where_born"]?> <?= $biography[0]["when_born"]?></span>
-                    <span>Lives and works in <?= $biography[0]["when_live_and_work"]?></span>
+                    <span><?= $antiXSS->hsc($biography[0]["fullName"])?></span>
+                    <span>Born in <?= $antiXSS->hsc($biography[0]["where_born"])?> <?=$antiXSS->hsc($biography[0]["when_born"])?></span>
+                    <span>Lives and works in <?= $antiXSS->hsc($biography[0]["when_live_and_work"])?></span>
                 </div>
                 <div class="py-3 bio-section-2">
                     <h2 class="py-1">EDUCATION</h2>
                     <?php foreach($getEductions as $eduction) { ?>
-                        <p><span><?= $eduction["date"]?></span><span class="m-5"><?= $eduction["description"]?></span></p>
+                        <p><span><?=  $antiXSS->hsc($eduction["date"])?></span><span class="m-5"><?=  $antiXSS->hsc($eduction["description"])?></span></p>
                     <?php }?>
                 </div>
                 <div class="py-3 bio-section-3">
                     <h2 class="py-1">TEACHINGS</h2>
                     <?php foreach($getTeachings as $teachs) { ?>
-                        <p><span><?= $teachs["date"]?></span><span class="m-5"><?= $teachs["description"]?></span></p>
+                        <p><span><?=  $antiXSS->hsc($teachs["date"])?></span><span class="m-5"><?=  $antiXSS->hsc($teachs["description"])?></span></p>
                     <?php }?>
                 </div>
             </div>

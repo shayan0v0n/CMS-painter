@@ -2,7 +2,10 @@
 
 require_once '../vendor/autoload.php';
 use Server\GetterDB;
+use Server\Security\AntiXSS;
+
 $getDatabase = new GetterDB();
+$antiXSS = new AntiXSS();
 $paintingsData = $getDatabase-> getData('paintings');
 $admin = $getDatabase-> getData('admin');
 $currentAdmin = isset($_COOKIE['authStatus']);
@@ -75,7 +78,7 @@ $currentAdmin = isset($_COOKIE['authStatus']);
         <?php if (isset($paintingsData[0])) { ?>
             <?php foreach($paintingsData as $painting) {?>
                 <div class="col-12 col-md-3 m-auto m-1 p-1 animate__animated animate__jackInTheBox ">
-                    <a href="/paintings/painting.php/?currentPage=<?= $painting['title']?>"><img title="<?= $painting['title']?>" src="/paintings/<?= $painting['title']?>.jpg" alt="<?= $painting['title'] ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" /></a>
+                    <a href="/paintings/painting.php/?currentPage=<?= $antiXSS->hsc($painting['title'])?>"><img title="<?= $antiXSS->hsc($painting['title'])?>" src="/paintings/<?= $antiXSS->hsc($painting['title'])?>.jpg" alt="<?= $antiXSS->hsc($painting['title']) ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" /></a>
                 </div>
             <?php }?>
         <?php } else { ?>

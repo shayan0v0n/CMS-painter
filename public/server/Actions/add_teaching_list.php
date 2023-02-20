@@ -10,4 +10,4 @@ $upload_dir = "C:\Users\shayanDev\Desktop\projects\CMS-painter/biography";
 $whenEducation = $_POST["whenTeachings"];
 $descriptionEducation = $_POST["descriptionTeachings"];
 $setToContactList-> addTeachingList("$whenEducation", "$descriptionEducation");
-header("location: /mydashboard/biographyDashboardphp");
+header("location: /mydashboard/biographyDashboard.php");

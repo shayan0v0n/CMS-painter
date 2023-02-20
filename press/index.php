@@ -2,7 +2,10 @@
 
 require_once '../vendor/autoload.php';
 use Server\GetterDB;
+use Server\Security\AntiXSS;
+
 $getDatabase = new GetterDB();
+$antiXSS = new AntiXSS();
 $pressData = $getDatabase-> getData('press');
 $admin = $getDatabase-> getData('admin');
 $currentAdmin = isset($_COOKIE['authStatus']);
@@ -77,9 +80,9 @@ $currentAdmin = isset($_COOKIE['authStatus']);
                 <div class="col-12 m-auto">
                     <div class="card animate__animated animate__fadeIn">
                         <?php if($press["internal"] == 1) { ?>
-                            <a href="<?= $press['link']?>" class="card-title"><?= $press['title']?></a>
+                            <a href="<?= $antiXSS->hsc($press['link'])?>" class="card-title"><?= $antiXSS->hsc($press['title'])?></a>
                         <?php }else { ?>
-                            <a href="/press/<?= $press['link']?>.pdf" class="card-title"><?= $press['title']?></a>
+                            <a href="/press/<?= $antiXSS->hsc($press['link'])?>.pdf" class="card-title"><?= $antiXSS->hsc($press['title'])?></a>
                         <?php } ?>
                     </div>
                 </div>

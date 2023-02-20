@@ -2,7 +2,10 @@
 
 require_once '../vendor/autoload.php';
 use Server\GetterDB;
+use Server\Security\AntiXSS;
+
 $getDatabase = new GetterDB();
+$antiXSS = new AntiXSS();
 $publicationsData = $getDatabase-> getData('publications');
 $admin = $getDatabase-> getData('admin');
 $currentAdmin = isset($_COOKIE['authStatus']);
@@ -77,8 +80,8 @@ $currentAdmin = isset($_COOKIE['authStatus']);
             <?php foreach($publicationsData as $publication) {?>
                 <div class="col-12 m-auto animate__animated animate__fadeIn">
                     <div class="card m-2">
-                        <p class="card-title"><?= $publication['name']?></p>
-                        <a href="/publications/<?= $publication['link'] ?>.pdf" class="card-text"><?= $publication['title']?></a>
+                        <p class="card-title"><?= $antiXSS->hsc($publication['name'])?></p>
+                        <a href="/publications/<?= $antiXSS->hsc($publication['link']) ?>.pdf" class="card-text"><?= $antiXSS->hsc($publication['title'])?></a>
                     </div>
                 </div>
             <?php }?>

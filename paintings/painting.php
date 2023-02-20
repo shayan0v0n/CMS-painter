@@ -1,8 +1,11 @@
 <?php
 require_once '../vendor/autoload.php';
 use Server\GetterDB;
+use Server\Security\AntiXSS;
+
 $currentPage = $_GET['currentPage'];
 $getDatabase = new GetterDB();
+$antiXSS = new AntiXSS();
 $currentPageData = $getDatabase-> getCustomData('paintings', "title", $currentPage);
 $paintingsData = $getDatabase-> getCustomData('subpaintings', "paintingID", $currentPageData[0]['id']);
 $admin = $getDatabase-> getData('admin');
@@ -76,7 +79,7 @@ $currentAdmin = isset($_COOKIE['authStatus']);
         <?php if (isset($paintingsData[0])) { ?>
             <?php foreach($paintingsData as $painting) {?>
                 <div class="col-12 col-md-3 m-auto m-1 p-1 animate__animated animate__jackInTheBox ">
-                    <img src="/paintings/<?= $painting['title']?>.jpg" alt="<?= $painting['title'] ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                    <img src="/paintings/<?= $antiXSS->hsc($painting['title'])?>.jpg" alt="<?= $antiXSS->hsc($painting['title']) ?>" onclick="fullImg(this)" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
                 </div>
             <?php }?>
         <?php } else { ?>

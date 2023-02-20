@@ -2,7 +2,10 @@
 
 require_once '../vendor/autoload.php';
 use Server\GetterDB;
+use Server\Security\AntiXSS;
+
 $getDatabase = new GetterDB();
+$antiXSS = new AntiXSS();
 $drawingDatas = $getDatabase-> getData('drawings');
 $cloneDrawingDatas = $drawingDatas;
 $admin = $getDatabase-> getData('admin');
@@ -79,12 +82,6 @@ $cloneDrawingDatas = $drawingDatas;
   </div>
 </nav>
 </header>
-
-
-
-
-
-
 <main>
     <div class="mt-5 mb-5 text-center">
         <h2 class="">DRAWINGS</h2>
@@ -99,7 +96,7 @@ $cloneDrawingDatas = $drawingDatas;
                         <div class="carousel-item row active">
                             <?php foreach($drawingSpliceOne as $drawing) {?>
                                 <div class="col-12 col-md-3 m-auto p-1">
-                                    <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                                    <img src="/drawings/<?= $antiXSS->hsc($drawing['title'])?>.jpg" alt="<?= $antiXSS->hsc($drawing['title']) ?>" title="<?= $antiXSS->hsc($drawing["title"])?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
                                 </div>
                             <?php }?>
                         </div>
@@ -108,7 +105,7 @@ $cloneDrawingDatas = $drawingDatas;
                     <div class="carousel-item row">
                         <?php foreach($drawingSpliceTwo as $drawing) {?>
                             <div class="col-12 col-md-3 m-auto p-1">
-                                <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                                <img src="/drawings/<?= $antiXSS->hsc($drawing['title'])?>.jpg" alt="<?= $antiXSS->hsc($drawing['title']) ?>" title="<?= $antiXSS->hsc($drawing["title"])?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
                             </div>
                         <?php }?>
                     </div>
@@ -117,7 +114,7 @@ $cloneDrawingDatas = $drawingDatas;
                     <div class="carousel-item row">
                         <?php foreach($drawingSpliceThree as $drawing) {?>
                             <div class="col-12 col-md-3 m-auto p-1">
-                                <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                                <img src="/drawings/<?= $antiXSS->hsc($drawing['title'])?>.jpg" alt="<?= $antiXSS->hsc($drawing['title']) ?>" title="<?= $antiXSS->hsc($drawing["title"])?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
                             </div>
                         <?php }?>
                     </div>
@@ -126,7 +123,7 @@ $cloneDrawingDatas = $drawingDatas;
                     <div class="carousel-item row">
                         <?php foreach($drawingSpliceFour as $drawing) {?>
                             <div class="col-12 col-md-3 m-auto p-1">
-                                <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                                <img src="/drawings/<?= $antiXSS->hsc($drawing['title'])?>.jpg" alt="<?= $antiXSS->hsc($drawing['title']) ?>" title="<?= $antiXSS->hsc($drawing["title"])?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
                             </div>
                         <?php }?>
                     </div>
@@ -135,7 +132,7 @@ $cloneDrawingDatas = $drawingDatas;
                     <div class="carousel-item row">
                         <?php foreach($drawingSpliceFive as $drawing) {?>
                             <div class="col-12 col-md-3 m-auto p-1">
-                                <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                                <img src="/drawings/<?= $antiXSS->hsc($drawing['title'])?>.jpg" alt="<?= $antiXSS->hsc($drawing['title']) ?>" title="<?= $antiXSS->hsc($drawing["title"])?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
                             </div>
                         <?php }?>
                     </div>
@@ -144,7 +141,7 @@ $cloneDrawingDatas = $drawingDatas;
                     <div class="carousel-item row">
                         <?php foreach($drawingSpliceSix as $drawing) {?>
                             <div class="col-12 col-md-3 m-auto p-1">
-                                <img src="/drawings/<?= $drawing['title']?>.jpg" alt="<?= $drawing['title'] ?>" title="<?= $drawing["title"]?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
+                                <img src="/drawings/<?= $antiXSS->hsc($drawing['title'])?>.jpg" alt="<?= $antiXSS->hsc($drawing['title']) ?>" title="<?= $antiXSS->hsc($drawing["title"])?>" onclick="this.requestFullscreen()" style="cursor: pointer" class="w-100 p-3 m-0 border rounded" height="200" />
                             </div>
                         <?php }?>
                     </div>
