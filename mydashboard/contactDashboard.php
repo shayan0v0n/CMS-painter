@@ -1,7 +1,10 @@
 <?php
 require_once '../vendor/autoload.php';
 use Server\GetterDB;
+use Server\Security\AntiXSS;
+
 $getDatabase = new GetterDB();
+$antiXSS = new AntiXSS();
 $admin = $getDatabase-> getData('admin');
 $contactList = $getDatabase-> getData('contact');
 $currentAdmin = $_COOKIE['authStatus'];
@@ -92,13 +95,13 @@ if (!$currentAdmin)
                         </h2>
                         <div id="collapse<?= $item['id']?>" class="accordion-collapse collapse" aria-labelledby="heading<?= $item['id']?>" data-bs-parent="#accordion">
                         <div class="accordion-body">
-                            <h2>Name: <?= $item['name']?></h2>
-                            <h2>Email: <?= $item['email']?></h2>
-                            <h2>Subject: <?= $item['subject']?></h2>
+                            <h2>Name: <?= $antiXSS->hsc($item['name'])?></h2>
+                            <h2>Email: <?= $antiXSS->hsc($item['email'])?></h2>
+                            <h2>Subject: <?= $antiXSS->hsc($item['subject'])?></h2>
                             <hr />
-                            <p style="font-size: 2rem;">Message: <?= $item['message']?></p>
+                            <p style="font-size: 2rem;">Message: <?= $antiXSS->hsc($item['message'])?></p>
                             <div class="text-end">
-                                <a href="/public/server/Actions/delete_contact_list.php/?contactListId=<?= $item['id']?>">
+                                <a href="/public/server/Actions/delete_contact_list.php/?contactListId=<?= $antiXSS->hsc($item['id'])?>">
                                     <img src="/public/assets/imgs/trash-icon.png" style="cursor: pointer;" />
                                 </a>
                             </div>
