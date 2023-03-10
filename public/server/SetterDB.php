@@ -8,7 +8,7 @@ class SetterDB extends Database {
         parent::__construct();
     }
 
-    public function setContactList($name, $email, $subject, $message): void {
+    public function setContactList(string $name,string $email,string $subject,string $message): void {
         $currentPDO = $this-> pdo;
         $sql = "INSERT INTO contact (name, email, subject, message) values (:name, :email, :subject, :message)";
         $statement = $currentPDO->prepare($sql);
@@ -20,7 +20,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function setPublicationList($name, $title, $link) {
+    public function setPublicationList(string $name,string $title,string $link): void {
         $currentPDO = $this-> pdo;
         $sql = "INSERT INTO publications (name, title, link) values (:name, :title, :link)";
         $statement = $currentPDO->prepare($sql);
@@ -31,7 +31,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function setExhibition($title, $location, $date, $place) {
+    public function setExhibition(string $title,string $location,string $date,string $place): void {
         $currentPDO = $this-> pdo;
         $sql = "INSERT INTO exhibitions (title, location, date, place) values (:title, :location, :date, :place)";
         $statement = $currentPDO->prepare($sql);
@@ -43,7 +43,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function setDrawing($title) {
+    public function setDrawing(string $title): void {
         $currentPDO = $this-> pdo;
         $sql = "INSERT INTO drawings (title) values (:title)";
         $statement = $currentPDO->prepare($sql);
@@ -52,7 +52,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function setPainting($title) {
+    public function setPainting(string $title): void {
         $currentPDO = $this-> pdo;
         $sql = "INSERT INTO paintings (title) values (:title)";
         $statement = $currentPDO->prepare($sql);
@@ -61,7 +61,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function setSubPainting($title, $paintingID) {
+    public function setSubPainting(string $title, string $paintingID): void {
         $currentPDO = $this-> pdo;
         $sql = "INSERT INTO subpaintings (title, paintingID) values (:title, :paintingID)";
         $statement = $currentPDO->prepare($sql);
@@ -71,7 +71,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function setPress($title, $link, $internal) {
+    public function setPress(string $title,string $link,string $internal): void {
         $currentPDO = $this-> pdo;
         $sql = "INSERT INTO press (title, link, internal) values (:title, :link, :internal)";
         $statement = $currentPDO->prepare($sql);
@@ -82,7 +82,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function updateBiographyImage($link) {
+    public function updateBiographyImage(string $link): void {
         $currentPDO = $this-> pdo;
         $sql = "UPDATE biography SET img_link = :imgLink WHERE id = 1";
         $statement = $currentPDO->prepare($sql);
@@ -91,7 +91,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function updateBiographyInfo($bioInfoUserName, $bioInfoWhereBorn, $bioInfoWhenBorn, $bioInfoWhenLiveAndWork) {
+    public function updateBiographyInfo(string $bioInfoUserName,string $bioInfoWhereBorn,string $bioInfoWhenBorn,string $bioInfoWhenLiveAndWork): void {
         $currentPDO = $this-> pdo;
         $sql = "UPDATE biography SET fullName = :fullName, where_born = :where_born, when_born = :when_born, when_live_and_work = :when_live_and_work WHERE id = 1";
         $statement = $currentPDO->prepare($sql);
@@ -103,7 +103,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function addEducationList($whenEducation, $descriptionEducation) {
+    public function addEducationList(string $whenEducation, string $descriptionEducation): void {
         $currentPDO = $this-> pdo;
         $sql = "INSERT INTO `eductions` (date, description) VALUES (:date, :description)";
         $statement = $currentPDO->prepare($sql);
@@ -113,7 +113,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function addTeachingList($whenTeachings, $descriptionTeachings) {
+    public function addTeachingList(string $whenTeachings, string $descriptionTeachings): void {
         $currentPDO = $this-> pdo;
         $sql = "INSERT INTO `teachings` (date, description) VALUES (:date, :description)";
         $statement = $currentPDO->prepare($sql);
@@ -123,7 +123,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function setBioDefault() {
+    public function setBioDefault(): void {
         $currentPDO = $this-> pdo;
         $sql = "INSERT INTO `biography` (id, fullName, where_born, when_born, when_live_and_work, img_link) VALUES (:id, :fullName, :where_born, :when_born, :when_live_and_work, :img_link)";
         $statement = $currentPDO->prepare($sql);
@@ -137,7 +137,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function setDefoultBiography(string $id) {
+    public function setDefoultBiography(string $id): void {
         $currentPDO = $this-> pdo;
         $sql = "UPDATE `biography` set fullName=:fullName , where_born=:where_born , when_born=:when_born , when_live_and_work=:when_live_and_work , img_link=:img_link WHERE id=$id";
         $statement = $currentPDO->prepare($sql);
@@ -150,7 +150,7 @@ class SetterDB extends Database {
         ]);
     }
 
-    public function deleteCustomData($tableType, $conditionType, $conditionValue) {
+    public function deleteCustomData(string $tableType, string $conditionType, string $conditionValue): void {
         $currentPDO = $this-> pdo;
         $sql = "DELETE FROM $tableType WHERE $conditionType = '$conditionValue'";
         $statement = $currentPDO-> query($sql);

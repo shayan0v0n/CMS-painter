@@ -8,7 +8,7 @@ class GetterDB extends Database {
         parent::__construct();
     }
 
-    public function getData($tableType) {
+    public function getData(string $tableType): array {
         $allData = [];
         $currentPDO = $this-> pdo;
         $sql = "SELECT * FROM $tableType";
@@ -20,7 +20,7 @@ class GetterDB extends Database {
         return $allData;
     }
 
-    public function getCustomData($tableType, $conditionType, $conditionValue) {
+    public function getCustomData(string $tableType, string $conditionType, string $conditionValue): array {
         $allData = [];
         $currentPDO = $this-> pdo;
         $sql = "SELECT * FROM $tableType WHERE $conditionType = '$conditionValue'";
